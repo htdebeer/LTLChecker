@@ -18,13 +18,9 @@ logic (LTL). In LTL one can specify properties such as:
 - All issues created in the weekend are confirmed in two days maximum
 
 For more information about this plug-in, I refer to its
-[manual](LTLChecker-Manual.md) and a paper I co-authored with my supervising
-professor: 
-
-W.M.P. van der Aalst and H.T. de Beer and B.F. van Dongen (2005) *Process
-Mining and Verification of Properties: An Approach based on Temporal Logic*,
-URL
-[http://www.processmining.org/_media/publications/aalst2005f.pdf](http://www.processmining.org/_media/publications/aalst2005f.pdf)
+[manual](Manual/LTLChecker-Manual.md) and a paper I co-authored with my supervising
+professor: W.M.P. van der Aalst and H.T. de Beer and B.F. van Dongen (2005) *Process
+Mining and Verification of Properties: An Approach based on Temporal Logic* ([PDF](http://www.processmining.org/_media/publications/aalst2005f.pdf)).
 
 
 As both the ProM framework and the LTL Checker plug-in have been developed
