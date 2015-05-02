@@ -1,0 +1,52 @@
+%%									    %%
+% date	    :   24112004						     %
+% version   :	0.1							     %
+%%									    %%
+
+\documentclass[a4paper,final]{report}
+
+\usepackage{graphicx}
+\usepackage{here}
+\usepackage{makeidx}
+\usepackage{alltt}
+\makeindex
+
+%%
+% Title
+
+\title{The LTL Checker Plugins\\ \textit{ a (reference) manual}}
+\author{Huub de Beer}
+\date{Eindhoven, December 2004}
+
+% End of title
+%%
+
+%%
+% Commands
+
+\newcommand{\menu}[1]{\textit{#1}}
+\newcommand{\ltl}[1]{\texttt{#1}}
+\newcommand{\bs}{\texttt{\ensuremath{\backslash}}}
+
+\newenvironment{ltlcode}{\begin{alltt}}{\end{alltt}}
+
+
+% End of commands
+%%
+
+\begin{document}
+    
+    \maketitle
+
+    \tableofcontents
+    
+    \input{Introduction.tex}
+    \input{PluginGui.tex}
+    \input{Language.tex}
+    \input{Grammar.tex}
+
+%    \input{Literature.tex}
+   
+    \printindex
+    
+\end{document}

@@ -1,0 +1,90 @@
+\chapter[Grammar]{Grammar of the LTL Language}
+\label{grammar}
+\index{LTL Language!Grammar}
+\index{Grammar}
+
+\section{Literals}
+\index{Grammar!Literal}
+\begin{ltlcode}
+<integer_literal>  ::= [1 - 9] ( [0 - 9] )*
+
+<real_literal>     ::= ([0 - 9])+ . ( [0 - 9] )* <exponent>?
+                   |   ( [0 - 9] )+ <exponent>?
+		   
+<exponent>         ::= [e,E] ( [+,-] )? ( [0 - 9] )+
+
+<string_literal>   ::= " ( ~[",\bs,\bs{}n,\bs{}r] | ( \bs ( [n,t,b,r,f,\bs,',"] ) ) )* "
+
+<desc_literal>     ::= \{ ( ~[\{,\}] | ( \bs ( [n,t,b,r,f,\bs,',",\},\{] ) ) )* \}
+\end{ltlcode}
+
+\section{Identifier}
+\index{Grammar!Identifier}
+
+\begin{ltlcode}
+<identifier>       ::= <startletter> ( <letter> | <digit> )*
+
+<startletter>      ::= [a - z,A - Z]
+
+<letter>           ::= [a - z,A - Z,-,_]
+
+<digit>            ::= [0 - 9]
+\end{ltlcode}
+
+\section{LTL File}
+\index{Grammar!LTL File}
+
+\begin{ltlcode}
+<ltlfile>          ::= ( <attribute> | <renaming> | <formulae> )*
+
+<attribute>        ::= ( 'number' | 'string' | 'set' ) <attr_name> ';'
+                   |   'date' <attr_name> ':=' <date_pattern> ';'
+
+<date_pattern>     ::= <string_literal>
+
+<attr_name>        ::= ( 'ate.' | 'pi.' )?<identifier>
+
+<renaming>         ::= 'rename' <attr_name> 'as' <identifier> ';'
+
+<formulae>         ::= ( formula | subformula ) <identifier> '(' <arg_list>? ')' 
+                               ':=' <desc_literal> <prop> ';'
+
+<arg_list>         ::= <arg> ( ', '<arg> )*
+
+<arg>              ::= <identifier> ':' <attr_name>
+\end{ltlcode}
+
+\section{Propositions}
+\index{Grammar!Propositions}
+
+\begin{ltlcode}
+<prop>             ::= <unary_prop> 
+                   |   <binary_prop> 
+                   |   <quantification> 
+                   |   <comparison> 
+                   |   <formula_call>
+
+<unary_prop>       ::= ( '!' | '[]' | '<>' | '_O' ) '(' <prop> ')'
+
+<binary_prop>      ::= '(' <prop> ( '/\bs' | '\bs/' | '->' | '<->' | '_U' ) <prop> ')' 
+
+<quantification>   ::= ( forall | exists ) '[' <identifier> : <name> '|' <prop> ']'
+
+<comparison>       ::= <attr_name> 
+                       ( '==' | '!=' | '<=' | '>=' | '<' | '>' | '~=' ) 
+		       <expr>
+                   |   <attr_name> 'in' '[' <string_list>? ']'
+
+<string_list>      ::= <string_literal> ( ',' <string_literal> )*
+
+<formula_call>     ::= <identifier> '(' <param_list>? ')'
+
+<param_list>       ::= <literal> ( ',' <literal> )*
+
+<literal>          ::= <integer_literal> | <real_literal> | <string_literal> 
+
+<expr>             ::= '-' <expr>
+                   |   '(' <expr> ( '+' | '-' | '*' | '/' ) <expr> ')'
+                   |   <literal>
+                   |   <attr_name>
+\end{ltlcode}

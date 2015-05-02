@@ -1,0 +1,144 @@
+#######################################
+# version : 1.0
+# date : 01122004
+# author : HT de Beer
+##
+
+## 
+# Defining attributes:
+##
+set ate.WorkflowModelElement;
+set ate.Originator;
+date ate.dob := "yyyy-MM-dd"; # dates have the format 'year-month-day'.
+number ate.distance;
+string ate.question;
+string ate.answer;
+string pi.name;
+number pi.case;
+
+##
+# Renamings
+##
+rename ate.WorkflowModelElement as task;
+rename ate.Originator as person;
+rename ate.dob as bdate;
+rename ate.distance as distance;
+rename ate.question as question;
+rename ate.answer as answer;
+rename pi.name as name;
+rename pi.case as case;
+
+##
+# Formulae
+##
+
+formula eventually_task_A_is_done_by_person_P( A : task, P: person ):=
+{
+  <h2>Does eventually P task A?</h2>
+
+    <p>Is there a audit trail entry in a process instance in which person P
+    does task A?</p>
+
+    <p>
+      <ul>
+        <li><b>A</b> is a task, of attribute <i>ate.WorkflowModelElement</i>.
+        For this argument fill in the task you want to check for.</li>
+        <li><b>P</b> is a person, of attribute <i>ate.Originator</i>. Fill in
+        the person you want to know if he or she perform task A.</li>
+      </ul>
+    </p>
+}
+  <>( ( task == A /\ person == P ) );
+
+formula does_John_drive() := 
+{ Does John drive in a process instance? }
+  eventually_task_A_is_done_by_person_P( "driving", "John" );
+
+subformula has_Answer() := {
+ If the task is asking, then there is a answer not equal to the empty string.
+ This formula results in true for all task other than asking and for tose
+ task equal to asking with a non empty answer.
+}
+  ( task == "asking" -> answer != "");
+
+subformula distance_between( lbound: distance, ubound: distance ) := {
+ The distance of the current audit trail entry lies between the lower bound
+ and the upper bound. }
+  ( distance >= lbound /\ distance <= ubound );
+
+subformula reasonable_distance() := {
+ If the task is cycling, the distance must be between 0 and 65, if the task
+ is driving is must be between 0 and 300, if the task is flying, the distance
+ must be between 150 and 1340. }
+  (    ( task == "cycling" -> distance_between( 0, 65 )     ) /\
+    (  ( task == "driving" -> distance_between( 0, 300 )    ) /\
+       ( task == "flying"  -> distance_between( 150, 1340 ) )
+    )
+  );
+
+subformula permitted_to_drive() := {
+ A person is permitted to drive if he or she is born before 2004-6-01. }
+  bdate < "2004-06-01";
+
+subformula a_important_case() := {
+ Case is important if the word 'important' is used in the name. }
+  name ~= ".*important.*";  
+
+subformula P_does_A-A_not_B( P: person, A: task, B: task ) := { 
+ Compute if person P does task A, which is not equal to B.}
+  <>( ( task == A /\ ( task != B /\ person == P ) ) );
+
+formula exists_person_doing_two_different_tasks() := {
+ Is there a person doing two different tasks?}
+  exists[ p: person   |
+    exists[ t: task   |
+      exists[ u: task |
+        (  P_does_A-A_not_B( p, t, u) /\
+           P_does_A-A_not_B( p, u, t)) 
+      ]
+    ]
+  ];
+
+subformula moving( P: person ) := {
+ Compute if person P is moving. }
+  <>( ( person == P /\
+        (   task == "driving" \/ 
+          ( task == "cycling" \/
+            task == "flying"
+          )
+        )
+    ) );
+
+subformula asking( P: person ) := {
+ Compute if person P is asking. }
+  <>( ( person == P /\ task == "asking" ) );
+
+formula moving_or_asking() := {
+ All persons are either moving or asking around.}
+  forall[ p: person |
+    ( 
+      ( moving( p ) /\ !( asking( p ) ) ) \/
+      ( !( moving( p ) ) /\ asking( p ) )
+    )
+  ];
+
+subformula end() := { 
+ Only in the last state holds that in the next state a
+ WorkflowModelElement is not equal itself ( for other elements the same of
+ course) because in the next audit trail entry of the last state all
+ comparisons are false, the data elements does obviously not exist.}
+  !( _O( ate.WorkflowModelElement == ate.WorkflowModelElement ));
+
+subformula next_older( d: bdate ) := {
+ Is d bigger or equal the current bdate? }
+  _O( bdate <= d );
+
+formula always_nexttime_older() := {
+ Holds always that the birthbdate of the person in he next audit trail entry is
+ lesser or equal to the date of birth of the person performing the current
+ audit trail entry?}
+  []( ( next_older( bdate ) \/ end() ) );
+
+formula move_till_question() := {
+ }
+  (task == "asking" _U  distance > 0  );

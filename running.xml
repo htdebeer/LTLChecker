@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="WorkflowLog.xsd" description="A testing log for
+the running example used in the LTL Checker (reference) manual">
+    <Data>
+        <Attribute name="info">For more information about the running example,
+	see the LTL Checker (reference) manual. This file can be checked with
+	the LTL Template file running.ltl</Attribute>
+    </Data>
+    <Source program="">
+    </Source>
+    <Process id="running_example">
+        <Data>
+            <Attribute name="info">A log for testing the running example</Attribute>
+        </Data>
+        <ProcessInstance id="case_0">
+            <Data>
+                <Attribute name="name">The first case</Attribute>
+		<Attribute name="case">0</Attribute>
+            </Data>
+            <AuditTrailEntry>
+                <WorkflowModelElement>starting</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="distance">2312</Attribute>
+		    <Attribute name="dob">2004-02-12</Attribute>
+                </Data>
+                <WorkflowModelElement>flying</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">231</Attribute>
+                </Data>
+                <WorkflowModelElement>driving</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2038-12-02</Attribute>
+		    <Attribute name="distance">45</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">231</Attribute>
+                </Data>
+                <WorkflowModelElement>driving</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2038-12-02</Attribute>
+		    <Attribute name="distance">45</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">1232</Attribute>
+                </Data>
+                <WorkflowModelElement>flying</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+	</ProcessInstance>
+        <ProcessInstance id="case_1">
+            <Data>
+                <Attribute name="name">The second case, after the first</Attribute>
+		<Attribute name="case">1</Attribute>
+            </Data>
+            <AuditTrailEntry>
+                <WorkflowModelElement>starting</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">31</Attribute>
+                </Data>
+                <WorkflowModelElement>driving</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">1232</Attribute>
+                </Data>
+                <WorkflowModelElement>flying</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+	</ProcessInstance>
+        <ProcessInstance id="case_2">
+            <Data>
+                <Attribute name="name">The current process instance in the manual</Attribute>
+		<Attribute name="case">2</Attribute>
+            </Data>
+            <AuditTrailEntry>
+                <WorkflowModelElement>starting</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2038-12-02</Attribute>
+		    <Attribute name="distance">8</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2038-12-02</Attribute>
+		    <Attribute name="question">Can I start?</Attribute>
+		    <Attribute name="answer">You can</Attribute>
+                </Data>
+                <WorkflowModelElement>asking</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2004-02-12</Attribute>
+		    <Attribute name="distance">12</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2038-12-02</Attribute>
+		    <Attribute name="distance">103.54</Attribute>
+                </Data>
+                <WorkflowModelElement>driving</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="question">Where am I?</Attribute>
+		    <Attribute name="answer">Eindhoven</Attribute>
+                </Data>
+                <WorkflowModelElement>asking</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">1232</Attribute>
+                </Data>
+                <WorkflowModelElement>flying</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+	</ProcessInstance>
+        <ProcessInstance id="case_3">
+            <Data>
+                <Attribute name="name">Another case</Attribute>
+		<Attribute name="case">3</Attribute>
+            </Data>
+            <AuditTrailEntry>
+                <WorkflowModelElement>starting</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2004-02-12</Attribute>
+		    <Attribute name="distance">112</Attribute>
+                </Data>
+                <WorkflowModelElement>driving</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">2038-12-02</Attribute>
+		    <Attribute name="distance">45</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="distance">103.54</Attribute>
+		    <Attribute name="dob">2038-12-02</Attribute>
+                </Data>
+                <WorkflowModelElement>driving</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">1232</Attribute>
+                </Data>
+                <WorkflowModelElement>flying</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+	</ProcessInstance>
+        <ProcessInstance id="case_4">
+            <Data>
+                <Attribute name="name">Again a case</Attribute>
+		<Attribute name="case">4</Attribute>
+            </Data>
+            <AuditTrailEntry>
+                <WorkflowModelElement>asking</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Joseph</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="distance">8</Attribute>
+		    <Attribute name="dob">2038-12-02</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="question">Is this the second question?</Attribute>
+		    <Attribute name="answer">Yes it is</Attribute>
+		    <Attribute name="dob">1998-05-22</Attribute>
+                </Data>
+                <WorkflowModelElement>asking</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="distance">8</Attribute>
+		    <Attribute name="dob">2038-12-02</Attribute>
+                </Data>
+                <WorkflowModelElement>cycling</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>John</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="question">Can I start?</Attribute>
+		    <Attribute name="answer">You can</Attribute>
+		    <Attribute name="dob">1998-05-22</Attribute>
+                </Data>
+                <WorkflowModelElement>asking</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+            <AuditTrailEntry>
+                <Data>
+		    <Attribute name="dob">1998-05-22</Attribute>
+		    <Attribute name="distance">1232</Attribute>
+                </Data>
+                <WorkflowModelElement>flying</WorkflowModelElement>
+                <EventType>complete</EventType>
+		<Originator>Mary</Originator>
+            </AuditTrailEntry>
+	</ProcessInstance>
+    </Process>
+</WorkflowLog>
